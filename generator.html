@@ -1,0 +1,82 @@
+<html>
+<head>
+<link rel="icon" href="https://www.m3server.com/assets/img/m3server/security-logo.png">
+<style>
+	body{
+		font-family: "console" , monospace , sans-serif;
+	}
+	h2{
+		border: solid limegreen;
+		background-color: limegreen;
+		color: black;
+		font-size: 35px;
+	}
+	button:hover{
+		background-color: grey;
+	}
+	button{
+		background-color: limegreen;
+		border: none;
+		color: black;
+		padding: 10px 30px;
+		text-align: center;
+    	text-decoration: none;
+    	display: inline-block;
+    	font-size: 28px;
+    	margin: 4px 2px;
+    	cursor: pointer;
+	}
+	#result{
+		border: solid black 5px;
+		padding: 5px 10px;
+		text-align: center;
+		display: inline-block;
+	}
+	#explanation{
+		border-color: white;
+		width: 800;
+	}
+</style>
+<title>YourPass</title>
+</head>
+<body>
+<center>
+<h2>You-Pass</h2>
+<p id="explanation">To generate your personalized password fill out the boxes and the click the Generate button. In the boxes put facts about yourself ex. name, dog, street, town. This info will be put into your password. For example, if I put James and Rossano into the 2 prompts, one of the outcomes could be 6JamesqVRossano&*.</p>
+<form id="input">
+	<b>1st prompt</b><input type="text" value="">
+	<b>2nd prompt</b><input type="text" value="">
+</form>
+<button onclick="gener()"><b>Generate</b></button>
+<br>
+<p id="result"></p>
+<br>
+<p>To see how strong your password is click <a href="https://howsecureismypassword.net">here</a> or <a href="https://lastpass.com/howsecure.php">here</a></p>
+<p style="font-size: 10px">Made By- James Alexander Rossano</p>
+</center>
+<script>
+function gener(){
+	var firrand = Math.floor(Math.random() * 10);
+	var secrand = Math.floor(Math.random() * 10);
+	var text = "";
+	var text2 = "";
+  	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  	var posssym = "!@#$%^&*"
+
+ 	for (var i = 0; i < 2; i++){
+    	text += possible.charAt(Math.floor(Math.random() * possible.length));
+ 	}
+ 	for (var i = 0; i < 2; i++){
+    	text2 += posssym.charAt(Math.floor(Math.random() * posssym.length));
+ 	}
+ 	var x = document.getElementById("input");
+    var first = "" + x.elements[0].value;
+    var second = "" + x.elements[1].value;
+
+ 	var all = firrand + secrand + first + text + second + text2;
+
+ 	document.getElementById("result").innerHTML = all;
+}
+</script>
+</body>
+</html>
